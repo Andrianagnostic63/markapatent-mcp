@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.env
+.venv
+venv/
+*.log
+.mypy_cache/
+.pytest_cache/
+.DS_Store
+uv.lock
+.python-version
+
+# Ignore dot files/folders except necessary ones
+.*
+!.gitignore
+!.gitattributes
+!.dockerignore
+!.env.example
