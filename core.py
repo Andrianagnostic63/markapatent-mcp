@@ -215,11 +215,7 @@ async def get_trademark_detail_core(application_number: str) -> dict:
     payload = data.get("payload", {})
     item = payload.get("item", {})
 
-    # Strip base64 image data to reduce token usage
-    mark_info = item.get("markInformation", {})
-    if mark_info.get("figure"):
-        mark_info["figure"] = "[base64 image data omitted]"
-
+    _strip_base64(item)
     detail_cache[cache_key] = item
     return item
 
@@ -282,6 +278,7 @@ async def get_patent_detail_core(application_number: str) -> dict:
     data = await call_research_api("patent-file", params)
     payload = data.get("payload", {})
     item = payload.get("item", {})
+    _strip_base64(item)
     detail_cache[cache_key] = item
     return item
 
@@ -334,11 +331,29 @@ async def get_design_detail_core(file_id: str) -> dict:
     data = await call_research_api("design-file", params)
     payload = data.get("payload", {})
     item = payload.get("item", {})
+    _strip_base64(item)
     detail_cache[cache_key] = item
     return item
 
 
 # --- Helpers ---
+
+def _strip_base64(obj: Any) -> None:
+    """Recursively remove base64-encoded image data from API responses."""
+    if isinstance(obj, dict):
+        for key, value in list(obj.items()):
+            if isinstance(value, str) and len(value) > 500 and (
+                value.startswith("data:image") or value.startswith("/9j/") or value.startswith("iVBOR")
+            ):
+                obj[key] = "[base64 image data omitted]"
+            elif key in ("figure", "data") and isinstance(value, str) and len(value) > 500:
+                obj[key] = "[base64 image data omitted]"
+            else:
+                _strip_base64(value)
+    elif isinstance(obj, list):
+        for item in obj:
+            _strip_base64(item)
+
 
 def _format_search_result(payload: dict) -> dict:
     """Format API search payload into a clean result dict."""
