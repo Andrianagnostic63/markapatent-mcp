@@ -237,19 +237,19 @@ async def search_patents_core(
     """Search patents on TURKPATENT."""
     params: dict[str, Any] = {
         "title": title,
-        "abstract": abstract or "",
-        "inventorName": owner or "",
-        "applicantName": applicant or "",
+        "abstracttr": abstract or "",
+        "inventionOwner": owner or "",
+        "applicationOwner": applicant or "",
         "applicationNumber": application_number or "",
         "epcApplicationNumber": "",
         "pctApplicationNumber": "",
-        "epcPublicationNumber": "",
+        "epcBulletinNumber": "",
         "priorityNumber": "",
-        "pctPublicationNumber": "",
-        "ipcClass": ipc_class or "",
-        "cpcClass": cpc_class or "",
-        "publicationDate": "",
-        "publicationEndDate": "",
+        "pctBulletinNumber": "",
+        "ipcType": ipc_class or "",
+        "cpcType": cpc_class or "",
+        "bulletinDate": None,
+        "bulletinDateLast": None,
         "attorney": attorney or "",
     }
 
