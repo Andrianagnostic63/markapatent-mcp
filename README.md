@@ -12,25 +12,23 @@ Bu proje, Türk Patent ve Marka Kurumu'na ait araştırma portalına (`turkpaten
 * Gelişmiş özellikler:
     * Tüm arama araçlarında sayfalama (limit/offset) desteği
     * In-memory caching (arama: 10 dk, detay: 1 saat)
-    * reCAPTCHA v3 otomatik token çözümü (Capsolver ile)
     * Arama operatörleri: içinde geçen, ile başlayan, eşit (marka aramasında)
 
 ---
-🌐 **En Kolay Yol: Ücretsiz Remote MCP (Claude Desktop için)**
 
-Hiçbir kurulum gerektirmeyen, doğrudan kullanıma hazır MCP sunucusu:
+## 🚀 Kurulum Gerektirmez! Hemen Kullan!
 
-1. Claude Desktop'ı açın
-2. **Settings > Connectors > Add custom connector**
-3. Açılan pencerede:
-   * **Name:** `Marka Patent MCP`
-   * **URL:** `https://markapatent-mcp.fastmcp.app/mcp`
-4. **Save** butonuna basın
-5. Listede sunucunun yanındaki Connect butonuna tıklayın.
+🔗 **Remote MCP Adresi:** `https://markapatent-mcp.fastmcp.app/mcp`
 
-Hepsi bu kadar! Artık Marka Patent MCP ile konuşabilirsiniz.
+### Claude Desktop ile Kullanım
 
-> **Not:** Bu ücretsiz sunucu topluluk için sağlanmaktadır. Yoğun kullanım için kendi sunucunuzu kurmanız önerilir.
+1. **Claude Desktop'ı açın**
+2. **Settings → Connectors → Add Custom Connector**
+3. **Bilgileri girin:**
+   - **Name:** `Marka Patent MCP`
+   - **URL:** `https://markapatent-mcp.fastmcp.app/mcp`
+4. **Save** butonuna tıklayın
+5. **Hemen kullanmaya başlayın!** 🎉
 
 ### Google Antigravity ile Kullanım
 
@@ -53,70 +51,10 @@ Hepsi bu kadar! Artık Marka Patent MCP ile konuşabilirsiniz.
 }
 ```
 
----
-🚀 **Claude Haricindeki Modellerle Kullanmak İçin Kolay Kurulum (Örnek: 5ire için)**
-
-Bu bölüm, Marka Patent MCP aracını 5ire gibi Claude Desktop dışındaki MCP istemcileriyle kullanmak isteyenler içindir.
-
-* **Python Kurulumu:** Sisteminizde Python 3.11 veya üzeri kurulu olmalıdır. Kurulum sırasında "**Add Python to PATH**" seçeneğini işaretlemeyi unutmayın. [Buradan](https://www.python.org/downloads/) indirebilirsiniz.
-* **Git Kurulumu (Windows):** Bilgisayarınıza [git](https://git-scm.com/downloads/win) yazılımını indirip kurun.
-* **`uv` Kurulumu:**
-    * **Windows (PowerShell):** `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
-    * **Mac/Linux (Terminal):** `curl -LsSf https://astral.sh/uv/install.sh | sh`
-* [5ire](https://5ire.app) MCP istemcisini indirip kurun.
-* 5ire'ı açın. **Workspace -> Providers** menüsünden kullanmak istediğiniz LLM servisinin API anahtarını girin.
-* **Tools** menüsüne girin. **+Local** veya **New** yazan butona basın.
-    * **Tool Key:** `markapatentmcp`
-    * **Name:** `Marka Patent MCP`
-    * **Command:**
-        ```
-        uvx --from git+https://github.com/saidsurucu/markapatent-mcp markapatent-mcp
-        ```
-    * **Save** butonuna basarak kaydedin.
-* **Tools** altında **Marka Patent MCP**'yi etkinleştirin (yeşil ışık yanmalı).
-
-> **Not:** `CAPSOLVER_API_KEY` ortam değişkeninin ayarlanmış olması gerekir. [Capsolver](https://www.capsolver.com/) üzerinden API anahtarı alabilirsiniz.
+> 💡 **İpucu:** Remote MCP sayesinde Python, uv veya herhangi bir kurulum yapmadan doğrudan TÜRKPATENT veritabanına erişebilirsiniz!
 
 ---
-⚙️ **Claude Desktop Manuel Kurulumu**
 
-1. **Ön Gereksinimler:** Python 3.11+, `uv`, ve bir Capsolver API anahtarı.
-2. Claude Desktop **Settings -> Developer -> Edit Config**.
-3. Açılan `claude_desktop_config.json` dosyasına `mcpServers` altına ekleyin:
-
-    ```json
-    {
-      "mcpServers": {
-        "Marka Patent MCP": {
-          "command": "uvx",
-          "args": [
-            "--from",
-            "git+https://github.com/saidsurucu/markapatent-mcp",
-            "markapatent-mcp"
-          ],
-          "env": {
-            "CAPSOLVER_API_KEY": "capsolver-api-anahtariniz"
-          }
-        }
-      }
-    }
-    ```
-4. Claude Desktop'ı kapatıp yeniden başlatın.
-
----
-🔑 **API Anahtarı**
-
-### Capsolver (Zorunlu)
-
-TÜRKPATENT portalı reCAPTCHA v3 koruması kullanmaktadır. Bu korumayı aşmak için Capsolver API anahtarı gereklidir:
-
-1. [Capsolver](https://www.capsolver.com/) üzerinden hesap oluşturun ve API anahtarı alın
-2. Environment variable olarak ayarlayın:
-   ```bash
-   export CAPSOLVER_API_KEY="your_api_key_here"
-   ```
-
----
 🛠️ **Kullanılabilir Araçlar (MCP Tools)**
 
 Bu FastMCP sunucusu LLM modelleri için **6 araç** sunar.
